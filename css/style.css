@@ -20,12 +20,18 @@
 
 #header::after {
   content: '';
-  background: #00f;
+  background: #fff;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 400px;
+  transform: translateY(-100%);
+  transition: 0.3s;
+}
+
+#header.active::after {
+  transform: translateY(0%);
 }
 
 #header nav > * {
@@ -38,6 +44,8 @@
   left: 15rem;
   /* background: #5f5; */
   z-index: 1;
+
+  display: none;
 }
 .submenu-wrap ul {
   display: flex;
@@ -88,6 +96,8 @@
   z-index: 1;
   width: 41.3rem;
   height: 20.5rem;
+
+  display: none;
 }
 
 #header nav {
@@ -133,11 +143,10 @@
   width: 0%;
   height: 2px;
   transition: 0.3s;
-  background: #f00;
-  /* background: var(--main-color); */
+  background: var(--main-color);
 }
 
-.gnb li a:hover b::after {
+.gnb li.on a b::after {
   width: 100%;
 }
 
