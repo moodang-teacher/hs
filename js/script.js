@@ -13,15 +13,29 @@ $(function () {
   const $mSubmenu = $('.m-submenu-wrap');
   const $dim = $('.dim');
   const $btnClose = $('.btn-close');
+  const $mGnbMenu = $('.m-gnb > li');
+  const $mGnbSubmenu = $('.m-gnb-sub');
+
+  // 모바일 용 메뉴를 클릭했을 때
+  $mGnbMenu.on('click', function () {
+    $(this).toggleClass('on');
+    $(this).siblings().removeClass('on');
+    $(this).find($mGnbSubmenu).stop().slideToggle(duration);
+    $(this).siblings().find($mGnbSubmenu).stop().slideUp(duration);
+  });
 
   $btnMmenu.on('click', function () {
     $mSubmenu.addClass('active');
     $dim.fadeIn(duration);
   });
 
-  $btnClose.on('click', function () {
+  $btnClose.add($dim).on('click', function () {
     $mSubmenu.removeClass('active');
     $dim.fadeOut(duration);
+
+    // 모바일 용 서브메뉴 초기화
+    $mGnbMenu.removeClass('on');
+    $mGnbSubmenu.stop().slideUp(duration);
   });
 
   // 마우스가 메뉴에 들어오면(mouseenter)
@@ -73,6 +87,11 @@ $(function () {
     // 얼마나 스크롤 되었는지 값을 구해서 저장
     scrollTop = $(this).scrollTop();
     setWhiteBackground();
+  });
+
+  // 언어 선택
+  $('.btn-lang').on('click', function () {
+    $('.lang-select').stop().slideToggle(duration);
   });
 
   // family site
