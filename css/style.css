@@ -360,12 +360,13 @@
   transform: translate(-50%, -50%) scale(1.3);
 }
 .video::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .video iframe {
@@ -518,9 +519,7 @@
 .business-list li:hover {
   flex: 1 1 40%;
 }
-.business-list li:not(:hover) {
-  flex: 1 1 15%;
-}
+
 .business-list li:hover::before {
   opacity: 1;
 }
@@ -800,8 +799,30 @@
     width: 90.2344%;
   }
 
+  .submenu-wrap {
+    left: 4%;
+  }
+  .banner-slide {
+    right: 4%;
+  }
+
   .foot-menu ul {
     gap: 7rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .submenu-wrap {
+    left: 3%;
+  }
+  .banner-slide {
+    right: 3%;
+  }
+  .submenu-wrap ul li dl dt {
+    font-size: 1.8rem;
+  }
+  .submenu-wrap ul li dl dd {
+    font-size: 1.6rem;
   }
 }
 
@@ -863,7 +884,7 @@
 }
 
 /*  문제가 발생하는 해상도를 위한 분기 */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   #header nav {
     justify-content: space-between;
   }
@@ -950,6 +971,14 @@
   .visual-con h2 {
     font-size: 3rem;
   }
+  .visual-con h2 b {
+    position: initial;
+  }
+  .visual-con h2 b::after {
+    left: 0;
+    bottom: -7px;
+  }
+
   .visual-con a {
     font-size: 1.3rem;
   }
