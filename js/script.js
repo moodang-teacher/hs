@@ -107,4 +107,30 @@ $(function () {
     duration: 600,
     offset: 200,
   });
+
+  // swiper.js
+  const managementList = new Swiper('.management-list', {
+    loop: false,
+
+    slidesPerView: 1,
+    spaceBetween: 150,
+    // centeredSlides: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    //Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-prev',
+      prevEl: '.swiper-button-next',
+    },
+
+    breakpoints: {
+      1200: {
+        slidesPerView: 'auto',
+        spaceBetween: 100,
+        centeredSlides: true,
+      },
+    },
+  });
 });
