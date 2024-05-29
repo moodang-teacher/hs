@@ -107,4 +107,15 @@ $(function () {
     duration: 600,
     offset: 200,
   });
+
+  const managementList = new Swiper('.management-list', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 });
