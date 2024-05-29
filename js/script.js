@@ -109,6 +109,8 @@ $(function () {
   });
 
   const managementList = new Swiper('.management-list', {
+    slidesPerView: 3, // for 675px
+    centeredSlides: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
