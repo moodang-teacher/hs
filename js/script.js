@@ -71,16 +71,18 @@ $(function () {
   }
 
   let scrollTop = $window.scrollTop();
-  const visualHeight = $('.visual').outerHeight();
   setWhiteBackground();
 
   function setWhiteBackground() {
+    const visualHeight = $('.visual').outerHeight();
     if (scrollTop >= visualHeight) {
       $header.addClass('w-bg');
     } else {
       $header.removeClass('w-bg');
     }
   }
+
+  $window.on('resize', setWhiteBackground);
 
   // 스크롤 이벤트
   $window.on('scroll', function () {
@@ -98,5 +100,11 @@ $(function () {
   $('.family-site select').on('change', function () {
     const linkValue = $(this).val();
     window.open(linkValue);
+  });
+
+  // AOS.js
+  AOS.init({
+    duration: 600,
+    offset: 200,
   });
 });
