@@ -109,7 +109,8 @@ $(function () {
   });
 
   const managementList = new Swiper('.management-list', {
-    slidesPerView: 3, // for 675px
+    // slidesPerView: 4, // for 675px
+    slidesPerView: 1,
     centeredSlides: true,
     pagination: {
       el: '.swiper-pagination',
@@ -118,6 +119,13 @@ $(function () {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      // when window width is >= 1024px
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 0,
+      },
     },
   });
 });

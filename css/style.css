@@ -632,31 +632,37 @@ body {
 .management {
   background: #f3f3f3;
   padding: 8rem 0 10rem;
-}
-
-.management-list-wrap {
-  background: tomato;
-
-  margin-top: 5rem;
   position: relative;
   height: 1000px; /* 임의로 */
 }
 
-.management-list {
+.management-list-wrap {
   border: 1px solid #ff0;
-  /* position: absolute;
-  top: 120px;
+  position: absolute;
+  top: 440px;
   left: 50%;
-  transform: translateX(-50%); */
-  /* width: 2700px; */
+  transform: translateX(-50%);
+  width: 2700px;
+}
+
+.management-list {
+  /* 얘는 건드리지 말자 */
 }
 
 .management-list .swiper-slide {
   border: 1px solid #000;
-  height: 368px;
   transition: 0.3s;
 }
-.management-list .swiper-slide strong {
+.management-list .swiper-slide a {
+  display: block;
+  width: 600px;
+  height: 368px;
+  margin: 0 auto;
+  border: 1px solid #00f;
+  position: relative;
+}
+
+.management-list .swiper-slide a strong {
   position: absolute;
   top: 0;
   right: -5rem;
@@ -676,8 +682,11 @@ body {
 .management-list .swiper-pagination {
   bottom: 0;
   left: 50%;
-  width: 500px;
+  transform: translateX(-50%);
+  width: 600px;
   background: skyblue;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .management-list .btn-wrap {
@@ -907,6 +916,30 @@ body {
     width: 924px;
     width: 90.2344%;
   } */
+
+  .management-list-wrap {
+    /* position: static; */
+    width: 100%;
+  }
+
+  .management-list .swiper-slide a {
+    width: 80%;
+    height: auto;
+  }
+
+  .management-list .swiper-slide a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .management-list .btn-wrap {
+    width: 95%;
+  }
+
+  .management-list .swiper-slide.swiper-slide-active {
+    margin-top: 0;
+  }
 
   .visual-con::after {
     width: 70.7792%; /* (654 / 924) * 100 */
