@@ -112,6 +112,7 @@ $(function () {
   const managementList = new Swiper('.management-list', {
     autoplay: {
       delay: 3000,
+      disableOnInteraction: false,
     },
     slidesPerView: 1,
     centeredSlides: true,
@@ -120,10 +121,31 @@ $(function () {
       prevEl: '.btn-prev',
     },
 
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
     breakpoints: {
       1024: {
         slidesPerView: 4, // 가로 크기 675px을 위해 (2700 / 4)
       },
     },
+  });
+
+  const $btnPlay = $('.btn-play');
+  const $btnPause = $('.btn-pause');
+  $btnPlay.hide();
+
+  $btnPause.on('click', function () {
+    managementList.autoplay.stop();
+    $(this).hide();
+    $btnPlay.show();
+  });
+
+  $btnPlay.on('click', function () {
+    managementList.autoplay.start();
+    $(this).hide();
+    $btnPause.show();
   });
 });

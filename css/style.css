@@ -656,6 +656,7 @@ body {
 }
 
 .management-list-wrap .management-list .swiper-slide a {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   display: block;
   width: 600px;
   height: 368px;
@@ -724,6 +725,69 @@ body {
 }
 .management-list-wrap .btn-wrap button.btn-next {
   background-image: url(../img/button_arrow_right.png);
+}
+
+.management-list-wrap .paging {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* background: #f39; */
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  width: 600px;
+}
+.management-list-wrap .swiper-pagination {
+  position: static;
+  display: flex;
+  gap: 1rem;
+}
+
+.management-list-wrap .swiper-pagination .swiper-pagination-bullet {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.management-list-wrap .swiper-pagination .swiper-pagination-bullet-active {
+  border-color: #000;
+}
+
+.management-list-wrap .swiper-pagination .swiper-pagination-bullet::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+}
+
+.management-list-wrap .paging .controls {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
+.management-list-wrap .paging .controls button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  background: transparent no-repeat 50%;
+}
+.management-list-wrap .paging .controls button.btn-pause {
+  background-image: url(../img/button_slide_stop.png);
+}
+.management-list-wrap .paging .controls button.btn-play {
+  background-image: url(../img/button_slide_play.png);
 }
 
 .heritage {
@@ -918,7 +982,7 @@ body {
 }
 
 /* 태블릿 디자인 */
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   /* .inner,
   .inner-wide {
     width: 924px;
@@ -952,8 +1016,15 @@ body {
 
   .management-list-wrap .management-list .swiper-slide a {
     width: 77%;
+    width: 90.2344%; /* .inner */
     height: auto;
     aspect-ratio: 1/0.6133;
+  }
+
+  .management-list-wrap .management-list .swiper-slide a .badge {
+    right: -11px;
+    width: 19.9557%;
+    font-size: 2.4vw;
   }
 
   .management-list-wrap .management-list .swiper-slide a img {
@@ -1067,6 +1138,10 @@ body {
   }
   .management-list-wrap {
     transform: translate(-50%, 0);
+  }
+  .management-list-wrap .btn-wrap button {
+    width: 70px;
+    height: 70px;
   }
 }
 
@@ -1213,5 +1288,10 @@ body {
   }
   .management {
     height: 100vw;
+  }
+
+  .management-list-wrap .btn-wrap button {
+    width: 50px;
+    height: 50px;
   }
 }
