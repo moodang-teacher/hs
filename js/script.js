@@ -82,7 +82,11 @@ $(function () {
     }
   }
 
-  $window.on('resize', setWhiteBackground);
+  // $window.on('resize', setWhiteBackground);
+  $window.on('resize', () => {
+    setWhiteBackground();
+    setManagementHeight();
+  });
 
   // 스크롤 이벤트
   $window.on('scroll', function () {
@@ -109,6 +113,23 @@ $(function () {
   });
 
   // 지속가능경영 슬라이더
+
+  function setManagementHeight() {
+    const titleHeight = $('.management .sec-title').outerHeight();
+    const sliderHeight = $('.management-list-wrap').outerHeight();
+    const managementHeight = titleHeight + sliderHeight;
+    console.log(titleHeight, sliderHeight, managementHeight);
+
+    $('.management').css('height', `calc(${managementHeight + 160}px + 15vw)`);
+  }
+
+  setManagementHeight();
+
+  const progressCircle = document.querySelector('.autoplay-progress svg');
+  const progressContent = document.querySelector('.autoplay-progress span');
+
+  const progressBar = document.querySelector('.progress-bar');
+
   const managementList = new Swiper('.management-list', {
     autoplay: {
       delay: 3000,
@@ -124,6 +145,21 @@ $(function () {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
+    },
+
+    on: {
+      autoplayTimeLeft(s, time, progress) {
+        // s: Swiper 인스턴스입니다.
+        // time: 남은 시간(밀리초)입니다.
+        // progress: 진행 상태(0에서 1 사이의 값)입니다.
+        // console.log(time, progress);
+
+        const progressValue = 1 - progress;
+        progressCircle.style.setProperty('--progress', progressValue);
+        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+
+        progressBar.style.width = progressValue * 100 + '%';
+      },
     },
 
     breakpoints: {
