@@ -633,15 +633,20 @@ body {
 .management {
   background: #f3f3f3;
   padding: 8rem 0 10rem;
+  box-sizing: content-box;
+}
+
+.management-inner {
   position: relative;
-  height: 110rem;
+  /* border: 5px solid #000; */
+  margin-top: 12vw;
 }
 
 .management-list-wrap {
   /* background: #ff5; */
   width: 2700px; /* slide 하나를 675px로 그리기 위해서(4개 배치) */
   position: absolute;
-  top: 460px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -1019,10 +1024,6 @@ body {
     height: 33.2rem;
   }
 
-  .management {
-    height: 107.4219vw;
-  }
-
   .management-list-wrap {
     width: 100%;
     top: 50%;
@@ -1052,6 +1053,15 @@ body {
   .management-list-wrap .btn-wrap button {
     width: 98px;
     height: 98px;
+  }
+
+  .progress {
+    bottom: -10px;
+    width: 77.03%;
+  }
+  .pagination-wrap {
+    bottom: -60px;
+    width: 77.03%;
   }
 
   .heritage-con {
@@ -1145,11 +1155,11 @@ body {
 
 /* 지속가능영역 슬라이더 위치조정 */
 @media (max-width: 850px) {
-  .management {
-    height: 140vw;
-  }
   .management-list-wrap {
     transform: translate(-50%, 0);
+  }
+  .pagination-wrap {
+    justify-content: center;
   }
 }
 
@@ -1293,8 +1303,5 @@ body {
     bottom: -30px;
     left: 0;
     right: auto;
-  }
-  .management {
-    height: 100vw;
   }
 }
