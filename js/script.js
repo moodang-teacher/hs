@@ -143,6 +143,11 @@ $(function () {
         // percentage: 진행상태를 1~0사이의 값으로 -->
         const percentageValue = (1 - percentage) * 100 + '%';
         document.querySelector('.progress-bar').style.width = percentageValue;
+
+        // // 원으로 진행률 표시
+        // document.querySelector('.autoplay-progress svg').style.setProperty('--progress', 1 - percentage);
+        // // document.querySelector('.autoplay-progress span').textContent = `${Math.ceil(timeLeft / 1000)}s`;
+        // document.querySelector('.autoplay-progress span').textContent = Math.ceil((1 - percentage) * 100) + '%';
       },
     },
   });
